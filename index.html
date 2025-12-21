@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EduConnect Hub</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+}
+button, input, select {
+  padding: 8px;
+  margin: 6px 0;
+  width: 100%;
+}
+
+/* ---------- LOGIN ---------- */
+#loginBox {
+  width: 320px;
+  margin: 120px auto;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,.1);
+}
+#loginBox h2 {
+  text-align: center;
+}
+
+/* ---------- HUB LAYOUT ---------- */
+#hub {
+  display: none;
+}
+
+header {
+  height: 55px;
+  background: #1e40af;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.layout {
+  display: flex;
+  height: calc(100vh - 55px);
+}
+
+aside {
+  width: 230px;
+  background: #111827;
+  color: white;
+}
+
+aside a {
+  display: block;
+  padding: 12px 20px;
+  color: #e5e7eb;
+  text-decoration: none;
+  cursor: pointer;
+}
+aside a:hover {
+  background: #1f2937;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  background: #f9fafb;
+}
+
+/* ---------- CARDS ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 15px;
+}
+.card {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,.08);
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginBox">
+  <h2>EduConnect Hub</h2>
+  <select id="role">
+    <option value="student">Student</option>
+    <option value="teacher">Teacher</option>
+    <option value="parent">Parent</option>
+  </select>
+  <input id="name" placeholder="Your Name">
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- HUB -->
+<div id="hub">
+  <header>
+    <div>EduConnect HUB</div>
+    <div id="userInfo"></div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <a onclick="dashboard()">📊 Dashboard</a>
+      <a onclick="announcements()">📢 Announcements</a>
+      <a onclick="logout()">🚪 Logout</a>
+    </aside>
+
+    <main id="content"></main>
+  </div>
+</div>
+
+<script>
+/* ---------- STORAGE ---------- */
+let announcementsData =
+  JSON.parse(localStorage.getItem("announcements")) || [];
+
+let user = JSON.parse(localStorage.getItem("user"));
+
+/* ---------- LOGIN ---------- */
+function login() {
+  user = {
+    name: name.value,
+    role: role.value
+  };
+  localStorage.setItem("user", JSON.stringify(user));
+  startHub();
+}
+
+/* ---------- START HUB ---------- */
+function startHub() {
+  if (!user) return;
+  loginBox.style.display = "none";
+  hub.style.display = "block";
+  userInfo.innerText = user.name + " (" + user.role + ")";
+  dashboard();
+}
+
+/* ---------- DASHBOARD ---------- */
+function dashboard() {
+  content.innerHTML = `
+    <h2>Dashboard</h2>
+    <div class="cards">
+      <div class="card">📢 Announcements<br>${announcementsData.length}</div>
+      <div class="card">📚 Materials<br>Coming Soon</div>
+      <div class="card">📝 Assignments<br>Coming Soon</div>
+      <div class="card">🎓 Grades<br>Coming Soon</div>
+    </div>
+  `;
+}
+
+/* ---------- ANNOUNCEMENTS ---------- */
+function announcements() {
+  let postBox = "";
+  if (user.role === "teacher") {
+    postBox = `
+      <input id="msg" placeholder="New Announcement">
+      <button onclick="postAnnouncement()">Post</button>
+    `;
+  }
+
+  content.innerHTML = `
+    <h2>Announcements</h2>
+    ${postBox}
+    <ul>
+      ${announcementsData.map(a => `<li>${a}</li>`).join("")}
+    </ul>
+  `;
+}
+
+function postAnnouncement() {
+  announcementsData.unshift(msg.value);
+  localStorage.setItem("announcements",
+    JSON.stringify(announcementsData));
+  announcements();
+}
+
+/* ---------- LOGOUT ---------- */
+function logout() {
+  localStorage.removeItem("user");
+  location.reload();
+}
+
+/* ---------- AUTO LOGIN ---------- */
+if (user) startHub();
+</script>
+
+</body>
+</html>
