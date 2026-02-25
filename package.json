@@ -1,0 +1,26 @@
+{
+  "name": "educonnect-fullstack",
+  "private": true,
+  "version": "1.0.0",
+  
+
+  "scripts": {
+    "dev:all": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "start": "node backend/server.js",
+    "smoke:api": "node test/smoke-api.js",
+    "smoke:db": "cd backend && npx tsx src/scripts/smoke-db.ts",
+    "smoke:frontend": "cd frontend && npm run build && cd .. && node test/regression.js",
+    "smoke:all": "npm run smoke:db && npm run smoke:api"
+  },
+  "devDependencies": {
+    "@types/react-transition-group": "^4.4.12",
+    "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
+}

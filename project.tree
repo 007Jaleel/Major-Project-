@@ -1,0 +1,134 @@
+D:\majorproject\educonnect\
+├───.env.example
+├───.gitignore
+├───all_contents.txt
+├───BUGS_FIXED.md
+├───ERRORS_FIXED.md
+├───final-fix.sh
+├───GEMINI.md
+├───Instructions_for_logs.md
+├───instructions.txt
+├───package.json
+├───project.tree
+├───start-project.ps1
+├───start-project.sh
+├───TEST_REPORT.md
+├───.clinerules\...
+├───.continue\...
+├───.git\...
+├───.qodo\...
+├───.vscode\...
+├───backend\
+│   ├───package.json
+│   ├───tsconfig.json
+│   ├───node_modules\...
+│   ├───src\
+│   │   ├───index.ts
+│   │   ├───test-index.ts
+│   │   ├───config\
+│   │   │   ├───database.ts
+│   │   │   ├───env.ts
+│   │   │   ├───redis.ts
+│   │   │   └───validateEnv.ts
+│   │   ├───middleware\
+│   │   │   ├───admin.ts
+│   │   │   ├───auth.ts
+│   │   │   ├───errorHandler.ts
+│   │   │   └───validation.ts
+│   │   ├───modules\
+│   │   │   ├───admin\...
+│   │   │   ├───announcements\...
+│   │   │   ├───auth\...
+│   │   │   ├───classes\...
+│   │   │   ├───settings\...
+│   │   │   └───student\...
+│   │   ├───scripts\
+│   │   │   ├───create-db.ts
+│   │   │   ├───init-db.ts
+│   │   │   ├───migrate-course-semester-branch.ts
+│   │   │   ├───migrate-schema-2.ts
+│   │   │   └───migrate-student-schema.ts
+│   │   ├───services\
+│   │   │   ├───auditLog.ts
+│   │   │   └───certificate.ts
+│   │   ├───types\
+│   │   │   └───global.d.ts
+│   │   └───utils\
+│   │       ├───generateOTP.ts
+│   │       ├───jwt.ts
+│   │       └───logger.ts
+│   └───uploads\...
+├───doc\
+│   ├───all_contents.txt
+│   ├───ARCHITECTURE.md
+│   ├───COMPLETION_REPORT.md
+│   ├───DELIVERY_SUMMARY.txt
+│   ├───DEVELOPMENT_CHECKLIST.md
+│   ├───PROJECT_SUMMARY.md
+│   ├───prototype.txt
+│   ├───QUICK_START.md
+│   ├───README.md
+│   └───SETUP_GUIDE.md
+├───frontend\
+│   ├───index.html
+│   ├───package.json
+│   ├───postcss.config.js
+│   ├───tailwind.config.js
+│   ├───tsconfig.json
+│   ├───vite.config.ts
+│   ├───node_modules\...
+│   ├───src\
+│   │   ├───App.tsx
+│   │   ├───App.tsx.backup
+│   │   ├───const.ts
+│   │   ├───CsvImport.tsx
+│   │   ├───main.tsx
+│   │   ├───components\
+│   │   │   ├───DashboardLayoutSkeleton.tsx
+│   │   │   ├───ErrorBoundary.tsx
+│   │   │   ├───Layout.tsx
+│   │   │   ├───OldLayout.tsx
+│   │   │   ├───PublicLayout.tsx
+│   │   │   ├───TestComponent.tsx
+│   │   │   ├───theme-provider.tsx
+│   │   │   ├───Toggle.tsx
+│   │   │   ├───attendance\...
+│   │   │   ├───grades\...
+│   │   │   └───ui\...
+│   │   ├───contexts\...
+│   │   ├───css\
+│   │   │   ├───dark-theme.css
+│   │   │   ├───index.css
+│   │   │   └───light-theme.css
+│   │   ├───hooks\
+│   │   │   ├───useAuth.ts
+│   │   │   ├───useComposition.ts
+│   │   │   ├───useMobile.tsx
+│   │   │   └───usePersistFn.ts
+│   │   ├───lib\
+│   │   │   ├───apiClient.ts
+│   │   │   ├───const.ts
+│   │   │   ├───mock-data.ts
+│   │   │   └───utils.ts
+│   │   └───pages\
+│   │       ├───chat_2026_02_12_11_00_47.md
+│   │       ├───Home.tsx
+│   │       ├───Index.tsx
+│   │       ├───NotFound.tsx
+│   │       ├───PublicSettings.tsx
+│   │       ├───admin\...
+│   │       ├───announcement\...
+│   │       ├───assignments\...
+│   │       ├───attendance\...
+│   │       ├───auth\...
+│   │       ├───classes\...
+│   │       ├───dashboard\...
+│   │       ├───dashboards\...
+│   │       └───grades\...
+├───reference\...
+└───test\
+    ├───functional-test.js
+    ├───login-api-test.js
+    ├───regression-comprehensive.js
+    ├───regression.cjs
+    └───regression.js

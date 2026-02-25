@@ -1,0 +1,66 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+all_contents.txt
+doc/all_contents.txt
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime
+.next/
+.nuxt/
+.cache/
+.turbo/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+.env.test
+.cache
+.next
+.turbo
+dist
+pnpm-lock.yaml
+
+# Backend specific
+backend/uploads/
+backend/.env
+backend/node_modules/
+backend/dist/
+
+# Frontend specific
+frontend/dist/
+frontend/build/
+frontend/.next/
+frontend/node_modules/
+frontend/.env.local
+
+.gemini/
+gha-creds-*.json
